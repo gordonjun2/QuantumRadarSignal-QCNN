@@ -8,7 +8,7 @@ import warnings
 import tensorflow as tf
 
 
-train_audio_path = '../dataset/'
+train_audio_path = './dataset/'
 sr=16000
 
 

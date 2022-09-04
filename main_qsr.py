@@ -23,8 +23,8 @@ labels = [
     'left', 'go', 'yes', 'down', 'up', 'on', 'right', 'no', 'off', 'stop',
 ]
 
-train_audio_path = '../dataset/'
-SAVE_PATH = "data_quantum/" # Data saving folder
+train_audio_path = './dataset/'
+SAVE_PATH = "./data_quantum/" # Data saving folder
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--eps", type = int, default = 30, help = "Epochs") 
@@ -83,7 +83,7 @@ else:
 early_stop = EarlyStopping(monitor='val_loss', mode='min', 
                            verbose=1, patience=10, min_delta=0.0001)
 
-checkpoint = ModelCheckpoint('checkpoints/best_demo.hdf5', monitor='val_acc', 
+checkpoint = ModelCheckpoint('./checkpoints/best_demo.hdf5', monitor='val_accuracy', 
                              verbose=1, save_best_only=True, mode='max')
 
 
@@ -103,6 +103,8 @@ history = model.fit(
     validation_data=(q_valid,y_valid)
 )
 
+# for key in history.history:
+#     print(key)
 
 model.save('checkpoints/'+ data_ix + '_demo.hdf5')
 
